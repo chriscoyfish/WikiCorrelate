@@ -3,6 +3,13 @@
 
     <string name="app_name">WikiCorrelate</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="datawarning">WARNING: This application is data-intensive. Ensure your provider Internet data plan is sufficient for use!</string>
+    <string name="source">Source:</string>
+    <string name="correlate">Correlate!</string>
+    <string name="target">Target:</string>
+    <string name="entersource">Enter source article</string>
+    <string name="entertarget">Enter target article</string>
+    <string name="blank"></string>
+    <string name="pleasewait">Please wait. Correlating entities&#8230;</string>
 
 </resources>
