@@ -71,7 +71,7 @@ public class WikiCorrelator  {
 		for (Element link : foundLinks) {
 			if (valid==true) return true;
 			String uri = link.attr("href");
-			if (uri.startsWith("/wiki/") && !uri.contains(":")) {
+			if (!isIrrelevantLink(uri)) {
 				_results++;
 				Vector<String> newPath = new Vector<String>(path);
 				newPath.add(uri);
@@ -79,6 +79,21 @@ public class WikiCorrelator  {
 			}
 		}
 		return false;
+	}
+	
+	/** 
+	 * Utility function to determine if the link is relevant to the article.
+	 * @param uri The link to be examined
+	 * @return True if the link is irrelevant (Wikipedia main articles, talk,
+	 * community links, etc.
+	 */
+	private boolean isIrrelevantLink(String uri) {
+		boolean invalid=false;
+		invalid |= !uri.startsWith("/wiki/");
+		invalid |= uri.startsWith("/wiki/Main_Page");
+		invalid |= uri.contains("_(disambiguation)");
+		invalid |= uri.contains(":");
+		return invalid;
 	}
 	
 	/**
